@@ -35,6 +35,12 @@
     <link href="{{asset('backend/lib/Ionicons/css/ionicons.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
+<!-- data table css -->
+    <link href="{{asset('backend/lib/highlightjs/github.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/lib/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('backend/css/starlight.css')}}">
@@ -64,9 +70,9 @@
             <span class="menu-item-label">Categories</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
-        </a><!-- sl-menu-link -->
+        </a><!-- sl-meu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="chart-morris.html" class="nav-link">Catagory</a></li>
+          <li class="nav-item"><a href="{{route('category')}}" class="nav-link">Catagory</a></li>
           <li class="nav-item"><a href="chart-flot.html" class="nav-link">Sub Category</a></li>
           <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Brand</a></li>
           <!-- <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li> -->
@@ -358,6 +364,36 @@
     <script src="{{ asset('backend/lib/bootstrap/bootstrap.js') }}"></script>
     <script src="{{ asset('backend/lib/jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
+
+      <script src="{{ asset('backend/lib/highlightjs/highlight.pack.js') }}.."></script>
+    <script src="{{ asset('backend/lib/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
+    <script src="{{ asset('backend/lib/select2/js/select2.min.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+      $(function(){
+        'use strict';
+
+        $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        $('#datatable2').DataTable({
+          bLengthChange: false,
+          searching: false,
+          responsive: true
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+      });
+    </script>
     <script src="{{ asset('backend/lib/jquery.sparkline.bower/jquery.sparkline.min.js') }}"></script>
     <script src="{{ asset('backend/lib/d3/d3.js') }}"></script>
     <script src="{{ asset('backend/lib/rickshaw/rickshaw.min.js') }}"></script>
@@ -370,5 +406,48 @@
     <script src="{{ asset('backend/js/starlight.js') }}"></script>
     <script src="{{ asset('backend/js/ResizeSensor.js') }}"></script>
     <script src="{{ asset('backend/js/dashboard.js') }}"></script>
+
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- Main js -->
+        <script>
+        @if(Session::has('messege'))
+          var type="{{Session::get('alert-type','info')}}"
+          switch(type){
+              case 'info':
+                   toastr.info("{{ Session::get('messege') }}");
+                   break;
+              case 'success':
+                  toastr.success("{{ Session::get('messege') }}");
+                  break;
+              case 'warning':
+                 toastr.warning("{{ Session::get('messege') }}");
+                  break;
+              case 'error':
+                  toastr.error("{{ Session::get('messege') }}");
+                  break;
+          }
+        @endif
+     </script>  
+
+     <script>  
+         $(document).on("click", "#delete", function(e){
+             e.preventDefault();
+             var link = $(this).attr("href");
+                swal({
+                  title: "Are you Want to delete?",
+                  text: "Once Delete, This will be Permanently Delete!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                })
+                .then((willDelete) => {
+                  if (willDelete) {
+                       window.location.href = link;
+                  } else {
+                    swal("Safe Data!");
+                  }
+                });
+            });
+    </script>
   </body>
 </html>
