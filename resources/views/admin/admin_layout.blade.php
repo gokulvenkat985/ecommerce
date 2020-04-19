@@ -74,9 +74,7 @@
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('category')}}" class="nav-link">Catagory</a></li>
           <li class="nav-item"><a href="chart-flot.html" class="nav-link">Sub Category</a></li>
-          <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Brand</a></li>
-          <!-- <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li> -->
-          <!-- <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li> -->
+          <li class="nav-item"><a href="{{route('brand')}}" class="nav-link">Brand</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -365,11 +363,15 @@
     <script src="{{ asset('backend/lib/jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
 
-      <script src="{{ asset('backend/lib/highlightjs/highlight.pack.js') }}.."></script>
+      <script src="{{ asset('backend/lib/highlightjs/highlight.pack.js') }}"></script>
     <script src="{{ asset('backend/lib/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
     <script src="{{ asset('backend/lib/select2/js/select2.min.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="{{ asset('backend/js/starlight.js') }}"></script>
+
+
     <script>
       $(function(){
         'use strict';
@@ -403,12 +405,32 @@
     <script src="{{ asset('backend/lib/Flot/jquery.flot.resize.js') }}"></script>
     <script src="{{ asset('backend/lib/flot-spline/jquery.flot.spline.js') }}"></script>
 
-    <script src="{{ asset('backend/js/starlight.js') }}"></script>
+    <!-- <script src="{{ asset('backend/js/starlight.js') }}"></script> -->
     <script src="{{ asset('backend/js/ResizeSensor.js') }}"></script>
     <script src="{{ asset('backend/js/dashboard.js') }}"></script>
 
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- Main js -->
+        <script >
+  
+
+    // code to read selected table row cell data (values).
+                $("#datatable1").on('click','.btnSelect',function(){
+                     // get the current row
+                     var currentRow=$(this).closest("tr"); 
+                     
+                     var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                     var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+                     var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+                    
+                     var data=col1+"\n"+col2;
+                     document.getElementById('copy1').value= col2;
+                     document.getElementById('copy2').value=col3;
+                     document.getElementById('copy0').value=col1;
+                     // alert(data);
+                });
+        
+</script>
         <script>
         @if(Session::has('messege'))
           var type="{{Session::get('alert-type','info')}}"
@@ -449,5 +471,6 @@
                 });
             });
     </script>
+
   </body>
 </html>
