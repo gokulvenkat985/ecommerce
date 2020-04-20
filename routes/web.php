@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 //admin panel 
 Route::get('admin/category','Admin\Category\CategoryController@category')->name('category');
+
 //admin category
 Route::post('admin/store/category','Admin\Category\CategoryController@storecategory')->name('store.category');
 Route::get('/delete/category/{id}','Admin\Category\CategoryController@deletecategory');
@@ -31,3 +32,6 @@ Route::post('admin/update/category','Admin\Category\CategoryController@updatecat
 ///admin brands
 Route::get('admin/brand','Admin\Category\Brandcontroller@brand')->name('brand');
 Route::post('admin/store/brand','Admin\Category\Brandcontroller@storebrand')->name('store.brand');
+Route::get('/delete/brand/{id}','Admin\Category\Brandcontroller@deletebrand');
+Route::get('/edit/brand/{id}','Admin\Category\Brandcontroller@editbrand');
+Route::post('update/brand/{id}','Admin\Category\Brandcontroller@updatebrand');
