@@ -73,7 +73,7 @@
         </a><!-- sl-meu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('category')}}" class="nav-link">Catagory</a></li>
-          <li class="nav-item"><a href="chart-flot.html" class="nav-link">Sub Category</a></li>
+          <li class="nav-item"><a href="{{ route('sub_category')}}" class="nav-link">Sub Category</a></li>
           <li class="nav-item"><a href="{{route('brand')}}" class="nav-link">Brand</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
@@ -427,6 +427,20 @@
                      document.getElementById('copy1').value= col2;
                      document.getElementById('copy2').value=col3;
                      document.getElementById('copy0').value=col1;
+                     // alert(data);
+                });
+                $("#datatable2").on('click','.btnSelect1',function(){
+                     // get the current row
+                     var currentRow=$(this).closest("tr"); 
+                     
+                     var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                     var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+                     var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+                    
+                     var data=col1+"\n"+col2+col3;
+                     document.getElementById('sub1').value= col2;
+                     document.getElementById('sub2').value=col3;
+                     document.getElementById('sub3').value=col1;
                      // alert(data);
                 });
         
