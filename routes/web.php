@@ -50,6 +50,9 @@ Route::post('admin/store/update','Admin\Category\CouponController@updatecoupon')
 
 ////news later
 Route::get('admin/newslater','Admin\Category\CouponController@newslater')->name('newslater');
+Route::get('delete/newslater/{id}','Admin\Category\CouponController@deletenewslater');
+
+
 
 ///front end newslater
 Route::post('store/newslater','Frontend\FrontController@storenewslater')->name('newslater.email');

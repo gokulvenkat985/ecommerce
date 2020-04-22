@@ -1,12 +1,12 @@
 @extends('admin.admin_layout')
 @section('main_content')
 <div class="sl-mainpanel">
-      <nav class="breadcrumb sl-breadcrumb">
+      <!-- <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="index.html">Starlight</a>
         <a class="breadcrumb-item" href="index.html">Tables</a>
         <span class="breadcrumb-item active">Data Table</span>
       </nav>
-
+ -->
       <div class="sl-pagebody">
         <div class="sl-page-title">
           <h5>Subscriber List</h5>
@@ -15,7 +15,7 @@
 
         <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">Subscriber list
-            <!-- <a href="" class="btn btn-sm btn-warning pd-x-20" data-toggle="modal" data-target="#modaldemo3" style="float:right;">Add new</a> -->
+            <a href="" class="btn btn-sm btn-warning pd-x-20" data-toggle="modal" data-target="#modaldemo3" style="float:right;">Delete all</a>
 
            </h6>
            @if ($errors->any())
@@ -43,13 +43,13 @@
                 <!-- view the records in table -->
                 @foreach($newslater as $key=>$data)
                 <tr>
-                  <td>{{$key+1}}</td>
+                  <td><input type="checkbox">{{$key+1}}</td>
                   <td>{{ $data->email }}</td>
                   <td>{{ $data->created_at }}</td>
 
                   <td>
                     
-                    <a href="{{URL::to('/delete/category/'.$data->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                    <a href="{{URL::to('/delete/newslater/'.$data->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                   </td>
                 </tr>
                 @endforeach 
@@ -79,10 +79,10 @@
           </div>
           
               </div><!-- modal-body -->
-              <div class="modal-footer">
+              <!-- <div class="modal-footer">
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
                 <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal">Close</button>
-              </div>
+              </div> -->
               </form>
             </div>
           </div> --><!-- modal-dialog -->

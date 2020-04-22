@@ -63,4 +63,14 @@ class CouponController extends Controller
 		$newslater = DB::table('newslaters')->get();
 		return view('admin.coupon.newslater',compact('newslater'));
 	}
+	public function deletenewslater($id){
+		$delete = DB::table('newslaters')->where('id',$id)->delete();
+		if($delete){
+			$notification=array(
+                        'messege'=>'Successfully deleted!',
+                        'alert-type'=>'success'
+                         );
+                       return Redirect()->back()->with($notification);
+		}
+	}
 }
