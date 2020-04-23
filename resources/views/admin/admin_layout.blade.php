@@ -39,9 +39,14 @@
     <link href="{{asset('backend/lib/highlightjs/github.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
     <link href="{{asset('backend/lib/select2/css/select2.min.css')}}" rel="stylesheet">
+    <!-- tag input cdn css-->
+    <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
+    <link href="{{ asset('backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
 
+     <link href="{{ asset('backend/lib/medium-editor/medium-editor.css') }}" rel="stylesheet">
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('backend/css/starlight.css')}}">
   </head>
@@ -96,8 +101,8 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="table-basic.html" class="nav-link">Add product</a></li>
-          <li class="nav-item"><a href="table-datatable.html" class="nav-link">All product</a></li>
+          <li class="nav-item"><a href="{{ route('add.product') }}" class="nav-link">Add product</a></li>
+          <li class="nav-item"><a href="{{ route('all.product') }}" class="nav-link">All product</a></li>
         </ul>
         
         <a href="#" class="sl-menu-link">
@@ -328,6 +333,22 @@
     <script src="{{ asset('backend/lib/select2/js/select2.min.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+    <script src="{{ asset('backend/lib/medium-editor/medium-editor.js') }}"></script>
+    <script src="{{ asset('backend/lib/summernote/summernote-bs4.min.js') }}"></script>
+     <script>
+      $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote').summernote({
+          height: 150,
+          tooltip: false
+        })
+      });
+    </script>
     <script src="{{ asset('backend/js/starlight.js') }}"></script>
 
 
@@ -369,6 +390,8 @@
     <script src="{{ asset('backend/js/dashboard.js') }}"></script>
 
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
         <!-- Main js -->
         <script >
   

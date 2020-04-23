@@ -52,7 +52,11 @@ Route::post('admin/store/update','Admin\Category\CouponController@updatecoupon')
 Route::get('admin/newslater','Admin\Category\CouponController@newslater')->name('newslater');
 Route::get('delete/newslater/{id}','Admin\Category\CouponController@deletenewslater');
 
-
-
 ///front end newslater
 Route::post('store/newslater','Frontend\FrontController@storenewslater')->name('newslater.email');
+
+///admin Product route
+Route::get('admin/product/all','Admin\Product\productcontroller@index')->name('all.product');
+Route::get('admin/product/add','Admin\Product\productcontroller@addproduct')->name('add.product');
+//ajax 
+Route::post('ajax/subcategory','Admin\Product\productcontroller@ajaxproduct')->name('ajax.subcategory');

@@ -15,7 +15,7 @@
 
         <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">Subscriber list
-            <a href="" class="btn btn-sm btn-warning pd-x-20" data-toggle="modal" data-target="#modaldemo3" style="float:right;">Delete all</a>
+            <!-- <a href="" class="btn btn-sm btn-warning pd-x-20" data-toggle="modal" data-target="#modaldemo3" style="float:right;">Delete all</a> -->
 
            </h6>
            @if ($errors->any())
