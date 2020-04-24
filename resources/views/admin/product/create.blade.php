@@ -1,8 +1,4 @@
 @extends('admin.admin_layout')
-
-
-
-
 @section('main_content')
 <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">
@@ -14,7 +10,7 @@
         <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">New Product Add</h6>
           <p class="mg-b-20 mg-sm-b-30">New Product Add Form</p>
-<form method="post" action="" enctype="multipart/form-data">
+<form method="post" action="{{ route('product.store') }}" enctype="multipart/form-data">
   @csrf
           <div class="form-layout">
             <div class="row mg-b-25">
@@ -23,21 +19,21 @@
                   <label class="form-control-label">Productname: <span class="tx-danger">*</span></label>
                   <input class="form-control" type="text" name="product_name" value="" placeholder="Enter Productname">
                 </div>
-              </div><!-- col-4 -->
+              </div>
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
                   <input class="form-control" type="text" name="product_code" value="" placeholder="Enter ProductCode">
                 </div>
-              </div><!-- col-4 -->
+              </div>
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label>
                   <input class="form-control" type="text" name="product_quantity" value="" placeholder="Enter product quantity">
                 </div>
-              </div><!-- col-4 -->
+              </div>
               
-             <!-- col-8 -->
+           
               <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
@@ -69,7 +65,7 @@
                   <select class="form-control select2" data-placeholder="Choose country" name="brand_id">
                     <option label="Choose country"></option>
                     @foreach($brand as $data)
-                    <option value="{{ $data->brand_name }}">{{ $data->brand_name }}</option>
+                    <option value="{{ $data->id }}">{{ $data->brand_name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -98,8 +94,10 @@
                 <div class="col-lg-12">
                 <div class="form-group">
                   <label class="form-control-label">Product Details : <span class="tx-danger">*</span></label>
-                  <input class="form-control" name="product_details" id="summernote" >
-                   
+                  <!-- <input class="form-control" > -->
+                   <!-- <div id="summernote" ></div> -->
+                   <textarea rows="10" class="form-control" placeholder="Textarea" name="product_details"></textarea>
+
                 </div>
               </div>
 
@@ -113,7 +111,7 @@
                 <div class="form-group">
                   <label class="form-control-label">Image one(Main Thumbnail): <span class="tx-danger">*</span></label>
                  <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this)">
+                    <input type="file" id="file" class="custom-file-input" name="image_one" onchange="readURL(this)" required="">
                     <span class="custom-file-control"></span>
                     <img src="#" id="one">
                   </label>
@@ -124,7 +122,7 @@
                 <div class="form-group">
                   <label class="form-control-label">Image Two: <span class="tx-danger">*</span></label>
                  <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this)">
+                    <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL2(this)" required="">
                     <span class="custom-file-control"></span>
                     <img src="#" id="two">
                   </label>
@@ -135,15 +133,13 @@
                 <div class="form-group">
                   <label class="form-control-label">Image Three: <span class="tx-danger">*</span></label>
                  <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL3(this)">
+                    <input type="file" id="file" class="custom-file-input" name="image_three" onchange="readURL3(this)" required="">
                     <span class="custom-file-control"></span>
                     <img src="#" id="three">
                   </label>
                 </div>
               </div>
-              <!-- col-4 -->
-            </div><!-- row -->
-            <hr>
+                          </div>            <hr>
 <br><br>
 
             <div class="row">
@@ -155,7 +151,7 @@
                  </div>
                   <div class="col-lg-4">
                   <label class="ckbox">
-                    <input type="checkbox" name="main_slider" value="1">
+                    <input type="checkbox" name="hot_deal" value="1">
                     <span>Hot Deal</span>
                   </label>
                  </div>
@@ -181,8 +177,7 @@
 
                  <div class="col-lg-4">
                   <label class="ckbox">
-                    <input type="checkbox" name="hot_deal" value="1">
-
+                    <input type="checkbox" name="hot_new" value="1">
                     <span>Hot New</span>
                   </label>
                  </div>
@@ -190,14 +185,14 @@
                <hr>
 <br><br>
             <div class="form-layout-footer">
-              <button class="btn btn-info mg-r-5">Submit Form</button>
+              <button type="submit" class="btn btn-info mg-r-5">Submit Form</button>
               <button class="btn btn-secondary">Cancel</button>
-            </div><!-- form-layout-footer -->
+            </div>
           </div>
         </form>
         </div>
        
-        </div><!-- row -->
+        </div>
         <!-- row -->
       </div><!-- sl-pagebody -->    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>

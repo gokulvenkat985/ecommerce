@@ -32,7 +32,7 @@
           <!-- <p class="mg-b-20 mg-sm-b-30">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p> -->
 
           <div class="table-wrapper">
-            <table id="datatable1" class="table display responsive nowrap">
+            <table id="datatable2" class="table display responsive nowrap">
               <thead>
                 <tr>
                   <th class="wd-15p">ID</th>

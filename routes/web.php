@@ -56,7 +56,15 @@ Route::get('delete/newslater/{id}','Admin\Category\CouponController@deletenewsla
 Route::post('store/newslater','Frontend\FrontController@storenewslater')->name('newslater.email');
 
 ///admin Product route
-Route::get('admin/product/all','Admin\Product\productcontroller@index')->name('all.product');
+Route::get('admin/product/all','Admin\Product\productcontroller@allproduct')->name('all.product');
 Route::get('admin/product/add','Admin\Product\productcontroller@addproduct')->name('add.product');
-//ajax 
+Route::post('admin/product/store','Admin\Product\productcontroller@storeproduct')->name('product.store');
+//ajax for select tab in add product  
 Route::post('ajax/subcategory','Admin\Product\productcontroller@ajaxproduct')->name('ajax.subcategory');
+
+///all product page
+Route::get('/inactive/product/{id}','Admin\Product\productcontroller@inactive');
+
+Route::get('/Active/product/{id}','Admin\Product\productcontroller@active');
+Route::get('/delete/product/{id}','Admin\Product\productcontroller@delete');
+Route::get('/view/product/{id}','Admin\Product\productcontroller@viewproduct');
