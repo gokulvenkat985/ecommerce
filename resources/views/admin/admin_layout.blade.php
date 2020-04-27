@@ -104,6 +104,19 @@
           <li class="nav-item"><a href="{{ route('add.product') }}" class="nav-link">Add product</a></li>
           <li class="nav-item"><a href="{{ route('all.product') }}" class="nav-link">All product</a></li>
         </ul>
+
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+            <span class="menu-item-label">Blog</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{ route('add.blog.cat') }}" class="nav-link">Blog Category</a></li>
+          <li class="nav-item"><a href="{{ route('add.product') }}" class="nav-link">Add Post</a></li>
+          <li class="nav-item"><a href="{{ route('all.product') }}" class="nav-link">Post List</a></li>
+        </ul>
         
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -365,6 +378,14 @@
           }
         });
 
+        $('#datatable4').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
         $('#datatable2').DataTable({
           bLengthChange: false,
           searching: false,
@@ -438,10 +459,23 @@
                      document.getElementById('cou4').value=col4;
                      document.getElementById('cou1').value= col2;
                      document.getElementById('cou2').value=col3;
-                     // document.getElementById('cou3').value=col1;
+                    
+                });
+                $("#datatable4").on('click','.btnSelect3',function(){
+                     // get the current row
+                     var currentRow=$(this).closest("tr"); 
                      
+                     var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                     var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+                     var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+                     var col4=currentRow.find("td:eq(3)").text();
+                    
+                     var data=col2+"\n"+col3+col4;
+                     document.getElementById('cat1').value=col2;
+                     document.getElementById('cat2').value=col3;
+                     document.getElementById('cat3').value=col4;
 
-                     // alert(col4);
+                     // alert(data);
                 });
         
 </script>

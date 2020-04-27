@@ -70,3 +70,9 @@ Route::get('edit/product/{id}','Admin\Product\productcontroller@editproduct');
 Route::post('product/update/{id}','Admin\Product\productcontroller@updateproduct');
 Route::get('/Active/product/{id}','Admin\Product\productcontroller@active');
 Route::get('/delete/product/{id}','Admin\Product\productcontroller@delete');
+
+///admin blog 
+Route::get('/category/list','Admin\Post\PostController@BloCatList')->name('add.blog.cat');
+Route::post('category/blogcat','Admin\Post\PostController@storecatlist')->name('store.blogcat');
+Route::get('/delete/blogcat/{id}','Admin\Post\PostController@deleteblogcat');
+Route::post('category/update/blogcat','Admin\Post\PostController@updateblogcat')->name('update.blogcat');
