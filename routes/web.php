@@ -76,3 +76,7 @@ Route::get('/category/list','Admin\Post\PostController@BloCatList')->name('add.b
 Route::post('category/blogcat','Admin\Post\PostController@storecatlist')->name('store.blogcat');
 Route::get('/delete/blogcat/{id}','Admin\Post\PostController@deleteblogcat');
 Route::post('category/update/blogcat','Admin\Post\PostController@updateblogcat')->name('update.blogcat');
+
+Route::get('/add/postblog','Admin\Post\PostController@createblog')->name('add.postblog');
+Route::get('/all/postblog','Admin\Post\PostController@allblogpost')->name('all.postblog');
+Route::post('post/add','Admin\Post\PostController@postadd')->name('post.add');

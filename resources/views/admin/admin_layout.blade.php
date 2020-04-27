@@ -114,8 +114,8 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{ route('add.blog.cat') }}" class="nav-link">Blog Category</a></li>
-          <li class="nav-item"><a href="{{ route('add.product') }}" class="nav-link">Add Post</a></li>
-          <li class="nav-item"><a href="{{ route('all.product') }}" class="nav-link">Post List</a></li>
+          <li class="nav-item"><a href="{{ route('add.postblog') }}" class="nav-link">Add Post</a></li>
+          <li class="nav-item"><a href="{{ route('all.postblog') }}" class="nav-link">Post List</a></li>
         </ul>
         
         <a href="#" class="sl-menu-link">
@@ -362,6 +362,20 @@
         })
       });
     </script>
+    <script>
+      $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote1').summernote({
+          height: 150,
+          tooltip: false
+        })
+      });
+    </script>
     <script src="{{ asset('backend/js/starlight.js') }}"></script>
 
 
@@ -378,14 +392,7 @@
           }
         });
 
-        $('#datatable4').DataTable({
-          responsive: true,
-          language: {
-            searchPlaceholder: 'Search...',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
-          }
-        });
+        
         $('#datatable2').DataTable({
           bLengthChange: false,
           searching: false,
@@ -519,6 +526,6 @@
                 });
             });
     </script>
-
+    
   </body>
 </html>

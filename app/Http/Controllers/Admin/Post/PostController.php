@@ -53,8 +53,11 @@ class PostController extends Controller
                          );
              return Redirect()->back()->with($notification);
     	}
-
-    	// echo $request;
-
     }
+    public function createblog(){
+       $blogcat = DB::table('post_category')->get();
+       return view('admin.blog.create',compact('blogcat'));
+
+        }
+      
 }
