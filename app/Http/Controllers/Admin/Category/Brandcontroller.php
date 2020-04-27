@@ -17,7 +17,7 @@ class Brandcontroller extends Controller
     public function storebrand(Request $request){
     	$validate = $request->validate([
         'brand_name' => 'required|unique:brands|max:255',
-       
+        'brand_logo' => 'required',
     	]);
 
     	$data=array();
@@ -67,6 +67,10 @@ class Brandcontroller extends Controller
     		return view('admin.category.editbrand',compact('brand'));
     	}
     	public function updatebrand(Request $request,$id){
+        $validate = $request->validate([
+        'brand_name' => 'required|unique:brands|max:255',
+        
+        ]);
     	$old_logo = $request->old_logo;
     	$data=array();
     	$data['brand_name']=  $request->brand_name;

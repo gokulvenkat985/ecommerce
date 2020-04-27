@@ -63,8 +63,10 @@ Route::post('admin/product/store','Admin\Product\productcontroller@storeproduct'
 Route::post('ajax/subcategory','Admin\Product\productcontroller@ajaxproduct')->name('ajax.subcategory');
 
 ///all product page
-Route::get('/inactive/product/{id}','Admin\Product\productcontroller@inactive');
 
+Route::post('product/update/image','Admin\Product\productcontroller@imageupdate')->name('update.image');
+Route::get('/inactive/product/{id}','Admin\Product\productcontroller@inactive');
+Route::get('edit/product/{id}','Admin\Product\productcontroller@editproduct');
+Route::post('product/update/{id}','Admin\Product\productcontroller@updateproduct');
 Route::get('/Active/product/{id}','Admin\Product\productcontroller@active');
 Route::get('/delete/product/{id}','Admin\Product\productcontroller@delete');
-Route::get('/view/product/{id}','Admin\Product\productcontroller@viewproduct');

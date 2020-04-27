@@ -55,7 +55,7 @@
                   <td class="badge badge-danger mt-2" style="color:white">InActive</td>
                   @endif
                   <td>
-                  	<a href="{{ URL::to('edit/brand/'.$data->id)}}" class="btn btn-primary btn-sm"title="Edit!"><i class="fa fa-edit"></i></a>
+                  	<a href="{{ URL::to('edit/product/'.$data->id)}}" class="btn btn-primary btn-sm"title="Edit!"><i class="fa fa-edit"></i></a>
                     <a href="{{URL::to('/delete/product/'.$data->id)}}" class="btn btn-sm btn-danger" id="delete"title="Delete!"><i class="fa fa-trash"></i></a>
                     <!-- <a class="btn btn-primary">Active</a> -->
                     <a href="{{ URL::to('view/product/'.$data->id)}}" class="btn btn-warning btn-sm" title="Show!"><i class="fa fa-eye"></i></a>

@@ -41,6 +41,10 @@ class CouponController extends Controller
 		}
 	}
 	public function updatecoupon(Request $request){
+		$validatedata=$request->validate([
+    	'coupon' =>'required|unique:coupons|max:255',
+    	'discount' =>'required',
+		]);
 		$id = $request->id;
  		$update =  DB::table('coupons')->where('id',$id)
  						->update(['coupon'=>$request->coupon,'discount'=>$request->discount]);

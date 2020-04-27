@@ -8,7 +8,72 @@ use DB;
 use Image;
 
 class productcontroller extends Controller
-{
+{   
+     public function imageupdate(Request $request){
+        
+        $id=$request->id;
+        $old_logo1 = $request->old_one;
+        $old_logo2 = $request->old_two;
+        $old_logo3 = $request->old_three;
+
+        $data=array();
+       
+        $image_one = $request->file('image_one');
+        $image_two = $request->file('image_two');
+        $image_three = $request->file('image_three');
+
+        if($image_one){
+            unlink($old_logo1);
+            $image_name = date('dmy_H_s_i');
+            $ext = strtolower($image_one->getClientOriginalExtension());
+            $image_full_name = $image_name.'.'.$ext;
+            $upload_path = 'public/public/media/product/';
+            $image_url = $upload_path.$image_full_name;
+            $success =  $image_one->move($upload_path,$image_full_name);
+            $data['image_one'] = $image_url;
+            $product_image = DB::table('products')->where('id',$id)->update($data);
+            $notification=array(
+                        'messege'=>'Successfully one uploaded!',
+                        'alert-type'=>'success'
+                         );
+                       return Redirect()->back()->with($notification);
+        }
+        if($image_two){
+            unlink($old_logo2);
+            $image_name = date('dmy_H_s_i');
+            $ext = strtolower($image_two->getClientOriginalExtension());
+            $image_full_name = $image_name.'.'.$ext;
+            $upload_path = 'public/public/media/product/';
+            $image_url = $upload_path.$image_full_name;
+            $success =  $image_two->move($upload_path,$image_full_name);
+            $data['image_two'] = $image_url;
+            $product_image = DB::table('products')->where('id',$id)->update($data);
+            $notification=array(
+                        'messege'=>'Successfully two uploaded!',
+                        'alert-type'=>'success'
+                         );
+                       return Redirect()->back()->with($notification);
+        }
+        if($image_three){
+            unlink($old_logo3);
+            $image_name = date('dmy_H_s_i');
+            $ext = strtolower($image_three->getClientOriginalExtension());
+            $image_full_name = $image_name.'.'.$ext;
+            $upload_path = 'public/public/media/product/';
+            $image_url = $upload_path.$image_full_name;
+            $success =  $image_three->move($upload_path,$image_full_name);
+            $data['image_three'] = $image_url;
+            $product_image = DB::table('products')->where('id',$id)->update($data);
+            $notification=array(
+                        'messege'=>'Successfully three uploaded!',
+                        'alert-type'=>'success'
+                         );
+                       return Redirect()->back()->with($notification);
+        }
+        
+        
+        }
+       
     public function allproduct(){
         $product = DB::table('products')
              ->join('categories','products.category_id','=','categories.id')
@@ -36,6 +101,7 @@ class productcontroller extends Controller
     }
 
     public function storeproduct(Request $request){
+        $data=array();
     	$data['product_name']= $request->product_name;
     	$data['product_code']= $request->product_code;
     	$data['product_quantity']= $request->product_quantity;
@@ -134,4 +200,62 @@ class productcontroller extends Controller
         return view('admin.product.show',compact('product'));
              // return response()->json($product);
         }
+        public function editproduct($id){
+        $category = DB::table('categories')->get();
+        $brand = DB::table('brands')->get();
+        $product=DB::table('products')->where('id',$id)->first();
+          return view('admin.product.edit',compact('product','category','brand'));
+        
+        // return response()->json($product);
+        }
+        public function updateproduct(Request $request,$id)
+        {
+            $validate = $request->validate([
+                'product_name' => 'required','product_code' => 'required','product_quantity' => 'required','product_size' => 'required','product_color' => 'required','selling_price' => 'required',
+        'discount_price' => 'required',
+        'category_id' => 'required',
+       'subcategory_id' => 'required','brand_id' => 'required',
+        ]);
+
+        $data=array();
+        $data['product_name']= $request->product_name;
+        $data['product_code']= $request->product_code;
+        $data['product_quantity']= $request->product_quantity;
+        $data['category_id']= $request->category_id;
+        $data['subcategory_id']= $request->subcategory_id;
+        $data['brand_id']= $request->brand_id;
+        $data['video_link']= $request->video_link;
+        $data['product_size']= $request->product_size;
+        $data['product_color']= $request->product_color;
+        $data['selling_price']= $request->selling_price;
+        $data['subcategory_id']= $request->subcategory_id;
+        $data['product_details']= $request->product_details;
+        $data['discount_price'] =  $request->discount_price;
+        $data['main_slider']= $request->main_slider;
+        $data['hot_deal']= $request->hot_deal;
+        $data['best_rated']= $request->best_rated;
+        $data['trend']= $request->trend;
+        $data['mide_slider']= $request->mide_slider;
+        $data['hot_new']= $request->hot_new;
+
+         $affected = DB::table('products')
+              ->where('id', $id)
+              ->update($data);
+              if($affected){
+              $notification=array(
+                        'messege'=>'Successfully Updated!',
+                        'alert-type'=>'success'
+                         );
+                       return Redirect()->route('all.product')->with($notification);
+                   }
+                   else{
+                    $notification=array(
+                        'messege'=>'Nothing to update!',
+                        'alert-type'=>'error'
+                         );
+                       return Redirect()->route('all.product')->with($notification);
+                   }
+        }
+
+       
 }
