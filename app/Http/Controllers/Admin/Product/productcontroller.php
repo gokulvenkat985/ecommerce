@@ -103,6 +103,7 @@ class productcontroller extends Controller
     public function storeproduct(Request $request){
         $data=array();
     	$data['product_name']= $request->product_name;
+      $data['discount_price']= $request->discount_price;
     	$data['product_code']= $request->product_code;
     	$data['product_quantity']= $request->product_quantity;
     	$data['category_id']= $request->category_id;

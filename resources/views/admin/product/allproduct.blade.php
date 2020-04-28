@@ -76,8 +76,6 @@
               </tbody>
             </table>
           </div><!-- table-wrapper -->
-        </div><!-- card -->
-
-       
+        </div><!-- card -->       
     </div>
 @endsection

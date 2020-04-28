@@ -1,11 +1,7 @@
 @extends('admin.admin_layout')
 @section('main_content')
 <div class="sl-mainpanel">
-      <nav class="breadcrumb sl-breadcrumb">
-        <a class="breadcrumb-item" href="index.html">Starlight</a>
-        <a class="breadcrumb-item" href="index.html">Tables</a>
-        <span class="breadcrumb-item active">Data Table</span>
-      </nav>
+      
 
       <div class="sl-pagebody">
         <div class="sl-page-title">
@@ -27,10 +23,10 @@
 					        </ul>
 					    </div>
 			@endif
-          <!-- <p class="mg-b-20 mg-sm-b-30">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p> -->
+    
 
           <div class="table-wrapper">
-            <table id="datatable1" class="table display responsive nowrap">
+            <table id="datatable1" class="datatable1 table display responsive nowrap">
               <thead>
                 <tr>
                   <th class="wd-15p">ID</th>
@@ -56,6 +52,9 @@
             </table>
           </div><!-- table-wrapper -->
         </div><!-- card -->
+
+</div>
+</div>
 <div id="modaldemo3" class="modal fade">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content tx-size-sm">
@@ -67,15 +66,15 @@
                 </button>
               </div>
               <div class="modal-body pd-20">
-       			 <form method="post" action="{{route('store.category')}}">
-       			 	@csrf
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Category Name</label>
-				    <input type="text" class="form-control" id="exampleInputEmail1" name="category_name">
+             <form method="post" action="{{route('store.category')}}">
+              @csrf
+          <div class="form-group">
+            <label for="exampleInputEmail1">Category Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="category_name">
 
-				    <!-- <small id="emailHelp" class="form-text text-muted">Entert the .</small> -->
-				  </div>
-				  
+            <!-- <small id="emailHelp" class="form-text text-muted">Entert the .</small> -->
+          </div>
+          
               </div><!-- modal-body -->
               <div class="modal-footer">
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
@@ -96,15 +95,15 @@
                 </button>
               </div>
               <div class="modal-body pd-20">
-       			 <form method="post" action="{{route('update.category')}}">
-       			 	@csrf
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Category Name</label>
-				    <input type="hidden" class="form-control" id="copy1" name="id">
-				     <input type="text" class="form-control" id="copy2" name="category_name">
+             <form method="post" action="{{route('update.category')}}">
+              @csrf
+          <div class="form-group">
+            <label for="exampleInputEmail1">Category Name</label>
+            <input type="hidden" class="form-control" id="copy1" name="id">
+             <input type="text" class="form-control" id="copy2" name="category_name">
 
-				  </div>
-				  
+          </div>
+          
               </div><!-- modal-body -->
               <div class="modal-footer">
                 <button type="submit" class="btn btn-info pd-x-20">Submit</button>
@@ -114,5 +113,4 @@
             </div>
           </div><!-- modal-dialog -->
         </div>
-</div>
 @endsection

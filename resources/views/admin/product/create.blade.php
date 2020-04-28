@@ -32,7 +32,12 @@
                   <input class="form-control" type="text" name="product_quantity" value="" placeholder="Enter product quantity">
                 </div>
               </div>
-              
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Discount: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="discount_price" value="" placeholder="Enter Discount price">
+                </div>
+              </div>
            
               <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
@@ -84,7 +89,7 @@
                 </div>
               </div>
 
-              <div class="col-lg-4">
+              <div class="col-lg-12">
                 <div class="form-group">
                   <label class="form-control-label">Selling price : <span class="tx-danger">*</span></label>
                   <input class="form-control" type="text" name="selling_price" value="" placeholder="Enter Selling price">
