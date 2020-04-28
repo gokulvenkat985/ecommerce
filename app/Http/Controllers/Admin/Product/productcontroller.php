@@ -135,6 +135,7 @@ class productcontroller extends Controller
     		$image_one_name = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
     		Image::make($image_one)->resize(300,300)->save('public/public/media/product/'.$image_one_name);
     		$data['image_one']='public/public/media/product/'.$image_one_name;
+        
     		$image_two_name = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
     		Image::make($image_two)->resize(300,300)->save('public/public/media/product/'.$image_two_name);
     		$data['image_two']='public/public/media/product/'.$image_two_name;

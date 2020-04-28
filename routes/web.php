@@ -13,6 +13,7 @@
 
 
 
+
 Auth::routes();
 //front and backend integration
 Route::get('/home','HomeController@index')->name('home');
@@ -80,3 +81,6 @@ Route::post('category/update/blogcat','Admin\Post\PostController@updateblogcat')
 Route::get('/add/postblog','Admin\Post\PostController@createblog')->name('add.postblog');
 Route::get('/all/postblog','Admin\Post\PostController@allblogpost')->name('all.postblog');
 Route::post('post/add','Admin\Post\PostController@postadd')->name('post.add');
+Route::get('/delete/blogpost/{id}','Admin\Post\PostController@deletepost');
+Route::get('/edit/blogpost/{id}','Admin\Post\PostController@editpost');
+Route::post('update/blogpost','Admin\Post\PostController@updateblogpost')->name('update.blogpost');

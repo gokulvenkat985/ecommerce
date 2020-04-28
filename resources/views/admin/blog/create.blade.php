@@ -12,6 +12,15 @@
           <p class="mg-b-20 mg-sm-b-30">Product Add Form</p>
 <form method="post" action="{{ route('post.add') }}" enctype="multipart/form-data">
   @csrf
+  @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+      @endif
           <div class="form-layout">
             <div class="row mg-b-25">
               <div class="col-lg-4">
@@ -66,7 +75,7 @@
                 <div class="form-group">
                   <label class="form-control-label">Post Image: <span class="tx-danger">*</span></label>
                  <label class="custom-file">
-                    <input type="file" id="file" class="custom-file-input" name="post_image" onchange="readURL(this)" required="">
+                    <input type="file" id="file" class="custom-file-input" name="post_image" onchange="readURL(this)" >
                     <span class="custom-file-control"></span>
                     <img src="#" id="one">
                   </label>
