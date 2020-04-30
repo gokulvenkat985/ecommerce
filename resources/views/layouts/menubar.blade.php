@@ -199,22 +199,42 @@ $category = DB::table('categories')->get();
         </div>
 
     </header>
-    
+   @php
+   $banner = DB::table('products')
+                ->join('brands','brands.id','=','products.brand_id')
+                ->select('products.*','brands.brand_name')
+                ->where('main_slider',1)->orderBy('id','DESC')
+                ->first();
+
+
+
+   @endphp
     <!-- Banner -->
 
     <div class="banner">
         <div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
+        
         <div class="container fill_height">
             <div class="row fill_height">
-                <div class="banner_product_image"><img src="frontend/images/banner_product.png" alt=""></div>
+                <div class="banner_product_image">
+                    <img src="{{ URL::to($banner->image_one) }}" alt="" height="340px;"></div>
                 <div class="col-lg-5 offset-lg-4 fill_height">
                     <div class="banner_content">
-                        <h1 class="banner_text">new era of smartphones</h1>
-                        <div class="banner_price"><span>$530</span>$460</div>
-                        <div class="banner_product_name">Apple Iphone 6s</div>
+                        <h1 class="banner_text">{{ $banner->product_name }}</h1>
+                        <div class="banner_price">
+                            @if($banner->discount_price != null) 
+                            <span>${{ $banner-> selling_price }}</span>
+                            ${{ $banner->discount_price }}
+                            @else
+                            ${{ $banner-> selling_price }}
+                        
+                        </div>
+                            @endif
+                        <div class="banner_product_name">{{ $banner->brand_name }}</div>
                         <div class="button banner_button"><a href="#">Shop Now</a></div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>

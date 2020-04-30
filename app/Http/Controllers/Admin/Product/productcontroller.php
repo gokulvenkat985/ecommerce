@@ -214,7 +214,7 @@ class productcontroller extends Controller
         {
             $validate = $request->validate([
                 'product_name' => 'required','product_code' => 'required','product_quantity' => 'required','product_size' => 'required','product_color' => 'required','selling_price' => 'required',
-        'discount_price' => 'required',
+       
         'category_id' => 'required',
        'subcategory_id' => 'required','brand_id' => 'required',
         ]);
