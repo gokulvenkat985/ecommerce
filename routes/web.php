@@ -14,8 +14,9 @@
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 //front and backend integration
+
 Route::get('/home','HomeController@index')->name('home');
 Route::get('/admin','admin@index');
 Route::get('/', function () {

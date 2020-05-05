@@ -7,11 +7,10 @@
         "laravel"
     ],
     "license": "MIT",
+    
     "require": {
-        "symfony/translation":"4.3.8"
-    },
-    "require": {
-        "php": "^7.2",
+        "php": "^7.2.5",
+        "symfony/translation":"4.3.8",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.2",
