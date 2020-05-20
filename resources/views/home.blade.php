@@ -38,22 +38,54 @@
                         @endguest
                     </ul>
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-9" >
                    <div class="contact_form">
-                    <table class="table table-responsive">
+                    <table class="table table-responsive" >
                         <thead>
                             <tr>
-                               <td></td>
-                               <td></td>
-                               <td></td>                            
+                               <td scope="col">#</td>
+                               <td scope="col">First</td>
+                               <td scope="col">Last</td>
+                               <td scope="col">Body</td>           
                            </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                                
+                            </tr>
+                            <tr>
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                                
+                            </tr><tr>
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                               <td scope="col">Last</td>           
+                                
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="col-lg-3">
+                <img src="public/frontend/images/profile.jpg" class="rounded" width="120px;" height="120px;">
+                <ul>
+                  <li><a href="">Change password</a></li>
+                  <li>df</li>
+                  <li>df</li>
+
+                </ul>
+
+            </div>
+        </div>
             </div>
         </div>
     </div>
