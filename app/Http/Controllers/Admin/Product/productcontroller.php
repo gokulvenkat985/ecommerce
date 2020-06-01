@@ -118,6 +118,8 @@ class productcontroller extends Controller
     	
     	$data['main_slider']= $request->main_slider;
     	$data['hot_deal']= $request->hot_deal;
+      $data['buyone_getone']= $request->buyone_getone;
+
     	$data['best_rated']= $request->best_rated;
     	$data['trend']= $request->trend;
     	$data['mide_slider']= $request->mide_slider;
@@ -239,6 +241,7 @@ class productcontroller extends Controller
         $data['trend']= $request->trend;
         $data['mide_slider']= $request->mide_slider;
         $data['hot_new']= $request->hot_new;
+        $data['buyone_getone']= $request->buyone_getone;
 
          $affected = DB::table('products')
               ->where('id', $id)

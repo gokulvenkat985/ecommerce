@@ -85,3 +85,12 @@ Route::post('post/add','Admin\Post\PostController@postadd')->name('post.add');
 Route::get('/delete/blogpost/{id}','Admin\Post\PostController@deletepost');
 Route::get('/edit/blogpost/{id}','Admin\Post\PostController@editpost');
 Route::post('update/blogpost','Admin\Post\PostController@updateblogpost')->name('update.blogpost');
+
+//change passowrd
+Route::get('changepassword','HomeController@updatepassword')->name('change.password');
+Route::post('updatepassword','HomeController@updatespassword')->name('password.update');
+Route::get('logout','HomeController@logout')->name('logout');
+
+//wishlist
+
+Route::get('add/wishlist/{id}','WishlistController@addwishlist');

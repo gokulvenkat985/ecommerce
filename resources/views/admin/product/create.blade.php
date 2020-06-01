@@ -186,6 +186,12 @@
                     <span>Hot New</span>
                   </label>
                  </div>
+                 <div class="col-lg-4">
+                  <label class="ckbox">
+                    <input type="checkbox" name="buyone_getone" value="1">
+                    <span>Buyone getone</span>
+                  </label>
+                 </div>
                </div>
                <hr>
 <br><br>
